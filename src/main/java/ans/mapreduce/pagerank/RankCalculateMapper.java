@@ -1,4 +1,4 @@
-package mapreduce.pagerank;
+package ans.mapreduce.pagerank;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;

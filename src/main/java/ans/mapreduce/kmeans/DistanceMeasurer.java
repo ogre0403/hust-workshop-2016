@@ -1,4 +1,4 @@
-package mapreduce.kmeans;
+package ans.mapreduce.kmeans;
 
 public class DistanceMeasurer {
 

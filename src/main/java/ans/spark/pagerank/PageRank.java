@@ -1,4 +1,4 @@
-package spark.pagerank;
+package ans.spark.pagerank;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -41,7 +41,7 @@ public class PageRank {
                     for(String s1: neighbor){
                         list.add(s1);
                     }
-                    return new Tuple2<>(parts[0],list);
+                    return new Tuple2<String, Iterable<String>>(parts[0],list);
                 }
             }
         ).cache();
