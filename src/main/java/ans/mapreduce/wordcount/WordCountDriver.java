@@ -17,13 +17,9 @@ public class WordCountDriver {
     public static void main(String[] args) throws Exception {
 
         Configuration conf = new Configuration();
-        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
 
-
-        if (otherArgs.length != 2) {
-            System.err.println("Usage: <input> <output>  ");
-            System.exit(2);
-        }
+        String input = "data/wc.in";
+        String output = "output";
 
         Job job = Job.getInstance(conf, "word count");
         job.setJarByClass(WordCountDriver.class);
@@ -37,8 +33,8 @@ public class WordCountDriver {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 
-        FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
-        FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+        FileInputFormat.addInputPath(job, new Path(input));
+        FileOutputFormat.setOutputPath(job, new Path(output));
         System.exit(job.waitForCompletion(true) ? 0 : 1);
 
 

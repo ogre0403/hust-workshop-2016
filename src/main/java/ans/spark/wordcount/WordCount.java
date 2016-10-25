@@ -20,7 +20,7 @@ public class WordCount {
     private static Logger logger = Logger.getLogger(WordCount.class);
 
     public static void main(String[] args) throws Exception {
-        String inputFile = args[0];
+        String inputFile = "data/wc.in";
 
         // Create a Java Spark Context.
         SparkConf conf = new SparkConf().setAppName("wordCount").setMaster("local");
