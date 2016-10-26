@@ -1,4 +1,4 @@
-package ans.mapreduce.pagerank;
+package labs.mapreduce.pagerank;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -19,7 +19,7 @@ public class RankCalculateMapper extends Mapper<LongWritable, Text, Text, Text> 
      * Note: Remember that the pagerank calculation MapReduce job will run multiple times, as the pagerank will get
      * more accurate with each iteration. You should preserve each page's list of links.
      *
-     * @param key the key associated with each item output from {@link uk.ac.ncl.cs.csc8101.hadoop.parse.PageLinksParseReducer PageLinksParseReducer}
+     * @param key the key associated with each item output from
      * @param value the text value "[page]  [initialPagerank]   outLinkA,outLinkB,outLinkC..."
      * @param context Mapper context object, to which key-value pairs are written
      * @throws IOException
@@ -52,7 +52,12 @@ public class RankCalculateMapper extends Mapper<LongWritable, Text, Text, Text> 
 
         // For each linked to page, store [thisPage]    [thisPagesRank]    [thisTotalNumberOfLinks]
         for (String page : pages) {
-            context.write(new Text(page), new Text(thisPagesRank + TotalLinksNumber));
+
+            /**
+             * Lab 3:
+             * For each linked to page, store (page, thisPagesRank + TotalLinksNumber )
+             * */
+            context.write(new Text(), new Text());
         }
 
         // Adds original links for preservation
